@@ -6,9 +6,9 @@ import * as Git from '.@types/git';
 
 
 export class CoAuthor {
-    private _statusBarItem: vscode.StatusBarItem;
-    private _gitAPI: Git.API;
-    private _config = vscode.workspace.getConfiguration('glcm');
+    _statusBarItem: vscode.StatusBarItem;
+    _gitAPI: Git.API;
+    _config = vscode.workspace.getConfiguration('glcm');
 
     public optional = (value: any) => {
         if (value) {
@@ -24,6 +24,20 @@ export class CoAuthor {
             this._config = vscode.workspace.getConfiguration('glcm');
         });
     }
+
+    private setCommitMessageToTextBox(rep: Git.Repository, message: string) {
+        const isAlreadyTextInInputBox = rep.inputBox.value && rep.inputBox.value.length > 0;
+        if (!isAlreadyTextInInputBox || this._config.rewriteAlreadyTypedGitMessage) {
+            rep.inputBox.value = message;
+        } else {
+            // Append the new commit message to the existing text
+            rep.inputBox.value += `\n${message}`;
+        }
+    }
+
+
+
+    
 
     public updateStatusBarItem(): void {
         if (!this._statusBarItem) {
