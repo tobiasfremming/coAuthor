@@ -1,0 +1,30 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+  "files.exclude": {
+    "out": false // set this to true to hide the "out" folder with the compiled JS files
+  },
+  "search.exclude": {
+    "out": true // set this to false to include "out" folder in search results
+  },
+  // Turn off tsc task auto detection since we have the necessary tasks as npm scripts
+  "typescript.tsc.autoDetect": "off",
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#a1b9c5",
+    "activityBar.background": "#a1b9c5",
+    "activityBar.foreground": "#15202c",
+    "activityBar.inactiveForeground": "#15202c99",
+    "activityBarBadge.background": "#9e618a",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "commandCenter.border": "#15202c99",
+    "sash.hoverBorder": "#a1b9c5",
+    "statusBar.background": "#81a1b2",
+    "statusBar.foreground": "#15202c",
+    "statusBarItem.hoverBackground": "#61899f",
+    "statusBarItem.remoteBackground": "#81a1b2",
+    "statusBarItem.remoteForeground": "#15202c",
+    "titleBar.activeBackground": "#81a1b2",
+    "titleBar.activeForeground": "#15202c",
+    "titleBar.inactiveBackground": "#81a1b299",
+    "titleBar.inactiveForeground": "#15202c99"
+  }
+}
