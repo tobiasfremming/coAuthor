@@ -35,6 +35,28 @@ export class CoAuthor {
         }
     }
 
+    private async getCoAuthors(rep: Git.Repository): Promise<string> {
+        const coAuthors = this._config.contributors;
+        const coAuthorsString = coAuthors.map((coAuthor: string) => {
+            return `Co-authored-by: ${coAuthor}`;
+        }).join('\n');
+        return coAuthorsString;
+    }
+
+    private async getContributors(repoName: string, page = 1) {  
+        let request = await fetch(`https://api.github.com/repos/${repoName}/contributors?per_page=100&page=${page}`, {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json',
+            }
+        });
+    
+        // print data from the fetch on screen
+        let contributorsList = await request.json();
+        return contributorsList;
+    };
+    
+
 
 
     
